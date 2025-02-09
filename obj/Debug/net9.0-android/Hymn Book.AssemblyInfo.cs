@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Hymn Book")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+59ce6a326ab4e7808541049d05762a2649397fb6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+c57d3fc4a83ccd3dd71b8e1b10954da7ab217657")]
 [assembly: System.Reflection.AssemblyProductAttribute("Hymn Book")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Hymn Book")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
