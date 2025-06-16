@@ -83,4 +83,8 @@
 	  </MauiXaml>
 	</ItemGroup>
 
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\Raw\IWE ORIN BNJCC HYMNS.docx" />
+	</ItemGroup>
+
 </Project>

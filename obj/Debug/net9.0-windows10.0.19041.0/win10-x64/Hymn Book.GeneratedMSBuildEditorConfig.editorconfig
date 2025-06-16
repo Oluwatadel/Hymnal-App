@@ -15,7 +15,7 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Hymn_Book
-build_property.ProjectDir = C:\Users\oluwa\Documents\Programming\Software Journey\Projects\Hymn Book\
+build_property.ProjectDir = C:\Users\AIRIS TECHNOVATION 2\Documents\Hymnal-App\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.CsWinRTAotExportsEnabled = 
@@ -27,43 +27,43 @@ build_property.CsWinRTUseWindowsUIXamlProjections = false
 build_property.EffectiveAnalysisLevelStyle = 9.0
 build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/oluwa/Documents/Programming/Software Journey/Projects/Hymn Book/App.xaml]
+[C:/Users/AIRIS TECHNOVATION 2/Documents/Hymnal-App/App.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Hymn_Book.App.xaml
 build_metadata.AdditionalFiles.TargetPath = App.xaml
 build_metadata.AdditionalFiles.RelativePath = App.xaml
 
-[C:/Users/oluwa/Documents/Programming/Software Journey/Projects/Hymn Book/AppShell.xaml]
+[C:/Users/AIRIS TECHNOVATION 2/Documents/Hymnal-App/AppShell.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Hymn_Book.AppShell.xaml
 build_metadata.AdditionalFiles.TargetPath = AppShell.xaml
 build_metadata.AdditionalFiles.RelativePath = AppShell.xaml
 
-[C:/Users/oluwa/Documents/Programming/Software Journey/Projects/Hymn Book/MainPage.xaml]
+[C:/Users/AIRIS TECHNOVATION 2/Documents/Hymnal-App/MainPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Hymn_Book.MainPage.xaml
 build_metadata.AdditionalFiles.TargetPath = MainPage.xaml
 build_metadata.AdditionalFiles.RelativePath = MainPage.xaml
 
-[C:/Users/oluwa/Documents/Programming/Software Journey/Projects/Hymn Book/Resources/Styles/Colors.xaml]
+[C:/Users/AIRIS TECHNOVATION 2/Documents/Hymnal-App/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Hymn_Book.Resources.Styles.Colors.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Colors.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Colors.xaml
 
-[C:/Users/oluwa/Documents/Programming/Software Journey/Projects/Hymn Book/Resources/Styles/Styles.xaml]
+[C:/Users/AIRIS TECHNOVATION 2/Documents/Hymnal-App/Resources/Styles/Styles.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Hymn_Book.Resources.Styles.Styles.xaml
 build_metadata.AdditionalFiles.TargetPath = Resources\Styles\Styles.xaml
 build_metadata.AdditionalFiles.RelativePath = Resources\Styles\Styles.xaml
 
-[C:/Users/oluwa/Documents/Programming/Software Journey/Projects/Hymn Book/Views/HymnDetailPage.xaml]
+[C:/Users/AIRIS TECHNOVATION 2/Documents/Hymnal-App/Views/HymnDetailPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Hymn_Book.Views.HymnDetailPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HymnDetailPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HymnDetailPage.xaml
 
-[C:/Users/oluwa/Documents/Programming/Software Journey/Projects/Hymn Book/Views/HymnListPage.xaml]
+[C:/Users/AIRIS TECHNOVATION 2/Documents/Hymnal-App/Views/HymnListPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Hymn_Book.Views.HymnListPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\HymnListPage.xaml

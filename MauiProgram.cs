@@ -1,4 +1,8 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Hymn_Book.Intefaces.Repository;
+using Hymn_Book.Services;
+using Hymn_Book.ViewModels;
+using Hymn_Book.Views;
+using Microsoft.Extensions.Logging;
 
 namespace Hymn_Book
 {
@@ -15,8 +19,18 @@ namespace Hymn_Book
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            var hymnDb = new HymnDatabase();
+
+
+            builder.Services.AddSingleton(hymnDb);
+            builder.Services.AddScoped<IHymnRepository, IHymnRepository>();
+            builder.Services.AddScoped<IHymnService, IHymnService>();
+            builder.Services.AddTransient<HymnListViewModel>();
+            builder.Services.AddTransient<HymnListPage>();
+            builder.Services.AddTransient<HymnDetailPage>();
+
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();
