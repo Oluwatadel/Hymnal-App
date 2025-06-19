@@ -1,8 +1,10 @@
 ﻿using Hymn_Book.Intefaces.Repository;
+using Hymn_Book.Repository;
 using Hymn_Book.Services;
 using Hymn_Book.ViewModels;
 using Hymn_Book.Views;
 using Microsoft.Extensions.Logging;
+using System.Diagnostics;
 
 namespace Hymn_Book
 {
@@ -23,8 +25,8 @@ namespace Hymn_Book
 
 
             builder.Services.AddSingleton(hymnDb);
-            builder.Services.AddScoped<IHymnRepository, IHymnRepository>();
-            builder.Services.AddScoped<IHymnService, IHymnService>();
+            builder.Services.AddScoped<IHymnRepository, HymnRepository>();
+            builder.Services.AddScoped<IHymnService, HymnService>();
             builder.Services.AddTransient<HymnListViewModel>();
             builder.Services.AddTransient<HymnListPage>();
             builder.Services.AddTransient<HymnDetailPage>();
@@ -33,7 +35,26 @@ namespace Hymn_Book
             builder.Logging.AddDebug();
 #endif
 
-            return builder.Build();
+            var app = builder.Build();
+
+            using var scope = app.Services.CreateScope();
+            var repo = scope.ServiceProvider.GetService<IHymnRepository>();
+            if (repo != null)
+            {
+                Task.Run(async () =>
+                {
+                    try
+                    {
+                        await HymnSeeder.SeedFromDocxAsync(repo);
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine($"[Seeder] Failed to seed hymns: {ex.Message}");
+                    }
+                });
+            }
+
+            return app;
         }
     }
 }

@@ -57,6 +57,18 @@
 
 		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+		<AndroidResource Remove="Services\Implementation\**" />
+		<AndroidResource Remove="Services\Intefaces\**" />
+		<Compile Remove="Services\Implementation\**" />
+		<Compile Remove="Services\Intefaces\**" />
+		<EmbeddedResource Remove="Services\Implementation\**" />
+		<EmbeddedResource Remove="Services\Intefaces\**" />
+		<MauiCss Remove="Services\Implementation\**" />
+		<MauiCss Remove="Services\Intefaces\**" />
+		<MauiXaml Remove="Services\Implementation\**" />
+		<MauiXaml Remove="Services\Intefaces\**" />
+		<None Remove="Services\Implementation\**" />
+		<None Remove="Services\Intefaces\**" />
 		<MauiAsset Include="Resources/Raw/HymnsBook.docx" />
 	</ItemGroup>
 
@@ -66,12 +78,6 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
 		<PackageReference Include="Xceed.Words.NET" Version="5.0.25228.6154" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Services\Implementation\Repository\" />
-	  <Folder Include="Services\Implementation\Service\" />
-	  <Folder Include="Services\Intefaces\Service\" />
 	</ItemGroup>
 
 	<ItemGroup>
