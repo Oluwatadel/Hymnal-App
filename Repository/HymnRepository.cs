@@ -1,8 +1,5 @@
-﻿
-
-using Hymn_Book.Intefaces.Repository;
+﻿using Hymn_Book.Intefaces.Repository;
 using Hymn_Book.Model;
-using System.Linq.Expressions;
 
 namespace Hymn_Book.Repository
 {
@@ -26,6 +23,16 @@ namespace Hymn_Book.Repository
             => await _hymnDatabase.GetbyIdAsync(hymnNumber);
 
         public async Task<ICollection<Hymn>> GetAllHymnAsync() 
-            => await _hymnDatabase.GetAllHymnsAsync();
+            => await _hymnDatabase.GetAllHymnAsync();
+
+        public async Task ResetDatabase()
+        {
+            await _hymnDatabase.ResetDatabase();
+        }
+
+        public async Task CreateDatabase()
+        {
+            await _hymnDatabase.CreateDatabase();
+        }
     }
 }

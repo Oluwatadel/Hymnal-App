@@ -13,7 +13,8 @@ namespace Hymn_Book.Intefaces.Repository
         public Task AddHymnAsync(Hymn hymn);
         public Task<ICollection<Hymn>> FindHymnAsync(string param);
         public Task<ICollection<Hymn>> GetAllHymnAsync();
-
         public Task<Hymn> GetHymnAsync(int hymnNumber);
+        public Task ResetDatabase();
+        public Task CreateDatabase();
     }
 }

@@ -1,10 +1,5 @@
 ﻿using Hymn_Book.Intefaces.Repository;
 using Hymn_Book.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hymn_Book.Services
 {
@@ -18,8 +13,7 @@ namespace Hymn_Book.Services
         }
         public Task AddHymn(Hymn hymn)
         {
-            _hymnRepository.AddHymnAsync(hymn);
-            return Task.CompletedTask;
+            return _hymnRepository.AddHymnAsync(hymn);
         }
 
         public async Task<ICollection<Hymn>> GetAllHymns()

@@ -69,15 +69,17 @@
 		<MauiXaml Remove="Services\Intefaces\**" />
 		<None Remove="Services\Implementation\**" />
 		<None Remove="Services\Intefaces\**" />
-		<MauiAsset Include="Resources/Raw/HymnsBook.docx" />
+		<MauiAsset Remove="Resources\Raw\CleanedHymns.json" />
+		<EmbeddedResource Include="Resources/Raw/HymnsBook.docx" />
+		<EmbeddedResource Include="Resources\Raw\CleanedHymns.json" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+		<PackageReference Include="DocumentFormat.OpenXml" Version="3.3.0" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="9.0.0" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.9.172" />
-		<PackageReference Include="Xceed.Words.NET" Version="5.0.25228.6154" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -87,10 +89,9 @@
 	  <MauiXaml Update="Views\HymnListPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-		<EmbeddedResource Include="Resources\Raw\IWE ORIN BNJCC HYMNS.docx" />
+	  <MauiXaml Update="Views\HymnSearchPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

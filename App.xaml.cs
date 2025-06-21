@@ -1,17 +1,23 @@
-﻿namespace Hymn_Book
+﻿using Hymn_Book.Intefaces.Repository;
+
+namespace Hymn_Book
 {
     public partial class App : Application
     {
-        public App()
+        private readonly IServiceProvider _serviceProvider;
+
+        public App(IServiceProvider serviceProvider)
         {
             InitializeComponent();
-            MainPage = new MainPage(); //
+            _serviceProvider = serviceProvider;
+            //_hymnRepository.ResetDatabase();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new AppShell());
+            var shell = _serviceProvider.GetRequiredService<AppShell>();
+            return new Window(shell);
         }
 
     }
-}
+};

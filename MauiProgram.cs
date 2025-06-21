@@ -1,60 +1,86 @@
 ﻿using Hymn_Book.Intefaces.Repository;
+using Hymn_Book.Model;
 using Hymn_Book.Repository;
 using Hymn_Book.Services;
 using Hymn_Book.ViewModels;
 using Hymn_Book.Views;
 using Microsoft.Extensions.Logging;
+using SQLite;
 using System.Diagnostics;
 
-namespace Hymn_Book
+namespace Hymn_Book;
+
+public static class MauiProgram
 {
-    public static class MauiProgram
+    public static MauiApp CreateMauiApp()
     {
-        public static MauiApp CreateMauiApp()
+        var builder = MauiApp.CreateBuilder();
+
+        builder
+            .UseMauiApp<App>()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
+
+        // Register SQLite connection
+        builder.Services.AddSingleton(provider =>
         {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+            var dbPath = Path.Combine(FileSystem.AppDataDirectory, "app_database.db");
+            var conn = new SQLiteAsyncConnection(dbPath);
+            conn.CreateTableAsync<Hymn>().Wait();
+            return conn;
+        });
 
-            var hymnDb = new HymnDatabase();
+        // Register app services
+        builder.Services.AddSingleton<HymnDatabase>();
+        builder.Services.AddScoped<IHymnRepository, HymnRepository>();
+        builder.Services.AddScoped<IHymnService, HymnService>();
 
+        // Register view models
+        builder.Services.AddTransient<MainPageViewModel>();
+        builder.Services.AddTransient<HymnListViewModel>();
+        builder.Services.AddTransient<HymnSearchViewModel>();
 
-            builder.Services.AddSingleton(hymnDb);
-            builder.Services.AddScoped<IHymnRepository, HymnRepository>();
-            builder.Services.AddScoped<IHymnService, HymnService>();
-            builder.Services.AddTransient<HymnListViewModel>();
-            builder.Services.AddTransient<HymnListPage>();
-            builder.Services.AddTransient<HymnDetailPage>();
+        // Register views
+        builder.Services.AddTransient<MainPage>();
+        builder.Services.AddTransient<HymnDetailPage>();
+        builder.Services.AddTransient<HymnListPage>();
+        builder.Services.AddTransient<HymnSearchPage>();
+        builder.Services.AddSingleton<AppShell>();
+
+        // Register App
+        builder.Services.AddSingleton<App>();
 
 #if DEBUG
-            builder.Logging.AddDebug();
+        builder.Logging.AddDebug();
 #endif
 
-            var app = builder.Build();
+        var app = builder.Build();
 
+        // Seed hymns
+        Task.Run(async () =>
+        {
             using var scope = app.Services.CreateScope();
             var repo = scope.ServiceProvider.GetService<IHymnRepository>();
+
             if (repo != null)
             {
-                Task.Run(async () =>
+                try
                 {
-                    try
-                    {
-                        await HymnSeeder.SeedFromDocxAsync(repo);
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.WriteLine($"[Seeder] Failed to seed hymns: {ex.Message}");
-                    }
-                });
+                    await repo.ResetDatabase();
+                    await repo.CreateDatabase();
+                    await HymnSeeder.SeedFromJsonAsync(repo);
+                    Debug.WriteLine("[Seeder] Hymn seeding completed.");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"[Seeder] Failed to seed hymns: {ex.Message}");
+                }
             }
+        });
 
-            return app;
-        }
+        return app;
     }
 }

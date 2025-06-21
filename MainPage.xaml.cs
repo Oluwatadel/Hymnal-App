@@ -1,25 +1,22 @@
-﻿namespace Hymn_Book
+﻿using Hymn_Book.ViewModels;
+
+namespace Hymn_Book
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
-        public MainPage()
+        public MainPage(MainPageViewModel viewModel)
         {
             InitializeComponent();
+            BindingContext = viewModel;
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private async void OnHymnSelected(object sender, SelectionChangedEventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            if (e.CurrentSelection?.FirstOrDefault() is Model.Hymn selectedHymn)
+            {
+                await Navigation.PushAsync(new Views.HymnDetailPage(selectedHymn));
+                ((CollectionView)sender).SelectedItem = null;
+            }
         }
     }
-
 }
