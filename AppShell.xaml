@@ -4,20 +4,21 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:Hymn_Book"
+    xmlns:page="clr-namespace:Hymn_Book.Views.Page"
     Shell.FlyoutBehavior="Flyout"
     Title="Hymn_Book">
 
     <FlyoutItem Title="Home" Icon="Home.png">
-        <ShellContent ContentTemplate="{DataTemplate views:MainPage}" />
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
         
 
     <FlyoutItem Title="Favoruite" Icon="Favourite.png">
-        <ShellContent ContentTemplate="{DataTemplate views:HymnSearchPage}" />
+        <ShellContent ContentTemplate="{DataTemplate page:HymnSearchPage}" />
     </FlyoutItem>
 
     <!-- 👉 Add any other pages you want listed in the menu... -->
     <FlyoutItem Title="About" Icon="contact.png">
-        <ShellContent ContentTemplate="{DataTemplate views:AboutPage}" />
+        <ShellContent ContentTemplate="{DataTemplate page:AboutPage}" />
     </FlyoutItem>
 </Shell>

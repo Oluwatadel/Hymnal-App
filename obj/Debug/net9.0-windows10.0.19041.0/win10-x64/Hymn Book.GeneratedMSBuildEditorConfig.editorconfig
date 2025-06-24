@@ -69,12 +69,6 @@ build_metadata.AdditionalFiles.ManifestResourceName = Hymn_Book.Views.HymnListPa
 build_metadata.AdditionalFiles.TargetPath = Views\HymnListPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\HymnListPage.xaml
 
-[C:/Users/AIRIS TECHNOVATION 2/Documents/Hymnal-App/Views/HymnSearchPage.xaml]
-build_metadata.AdditionalFiles.GenKind = Xaml
-build_metadata.AdditionalFiles.ManifestResourceName = Hymn_Book.Views.HymnSearchPage.xaml
-build_metadata.AdditionalFiles.TargetPath = Views\HymnSearchPage.xaml
-build_metadata.AdditionalFiles.RelativePath = Views\HymnSearchPage.xaml
-
 [C:/Users/AIRIS TECHNOVATION 2/Documents/Hymnal-App/Views/Page/AboutPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Hymn_Book.Views.Page.AboutPage.xaml
@@ -86,3 +80,9 @@ build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = Hymn_Book.Views.Page.HelpPage.xaml
 build_metadata.AdditionalFiles.TargetPath = Views\Page\HelpPage.xaml
 build_metadata.AdditionalFiles.RelativePath = Views\Page\HelpPage.xaml
+
+[C:/Users/AIRIS TECHNOVATION 2/Documents/Hymnal-App/Views/Page/HymnSearchPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = Hymn_Book.Views.Page.HymnSearchPage.xaml
+build_metadata.AdditionalFiles.TargetPath = Views\Page\HymnSearchPage.xaml
+build_metadata.AdditionalFiles.RelativePath = Views\Page\HymnSearchPage.xaml

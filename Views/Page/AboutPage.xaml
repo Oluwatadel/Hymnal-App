@@ -33,11 +33,11 @@
                    FontAttributes="Bold"
                    TextColor="#555" />
 
-                <Label Text="Your Name / Team Name"
+                <Label Text="Airis Technovation"
                    FontSize="14"
                    TextColor="#555" />
 
-                <Label Text="Contact: your-email@example.com"
+                <Label Text="Contact: oluwatadel12@gmail.com"
                    FontSize="14"
                    TextColor="#555" />
 

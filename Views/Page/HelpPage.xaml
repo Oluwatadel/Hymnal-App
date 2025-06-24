@@ -5,7 +5,7 @@
              Title="HelpPage">
     <VerticalStackLayout>
         <Label 
-            Text="Help is coming soon"
+            Text="Help cometh from God"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>

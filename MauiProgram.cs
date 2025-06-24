@@ -4,6 +4,7 @@ using Hymn_Book.Repository;
 using Hymn_Book.Services;
 using Hymn_Book.ViewModels;
 using Hymn_Book.Views;
+using Hymn_Book.Views.Page;
 using Microsoft.Extensions.Logging;
 using SQLite;
 using System.Diagnostics;
