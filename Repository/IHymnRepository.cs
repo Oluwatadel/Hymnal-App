@@ -16,5 +16,6 @@ namespace Hymn_Book.Intefaces.Repository
         public Task<Hymn> GetHymnAsync(int hymnNumber);
         public Task ResetDatabase();
         public Task CreateDatabase();
+        public Task UpdateHymnAsync(Hymn hymn);
     }
 }

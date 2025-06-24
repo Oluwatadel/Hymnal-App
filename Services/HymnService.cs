@@ -30,5 +30,10 @@ namespace Hymn_Book.Services
         {
             return await _hymnRepository.GetHymnAsync(hymnNumber);
         }
+
+        public async Task UpdateHymnAsync(Hymn hymn)
+        {
+            await _hymnRepository.UpdateHymnAsync(hymn);
+        }
     }
 }

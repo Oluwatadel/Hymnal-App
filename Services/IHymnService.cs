@@ -13,5 +13,6 @@ namespace Hymn_Book.Services
         public Task<Hymn> GetHymn(int hymnNumber);
         public Task<ICollection<Hymn>> GetFilteredHymns(string filter);
         public Task AddHymn(Hymn hymn);
+        public Task UpdateHymnAsync(Hymn hymn);
     }
 }

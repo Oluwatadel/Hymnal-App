@@ -34,5 +34,10 @@ namespace Hymn_Book.Repository
         {
             await _hymnDatabase.CreateDatabase();
         }
+
+        public async Task UpdateHymnAsync(Hymn hymn)
+        {
+            await _hymnDatabase.UpdateHymnAsync(hymn);
+        }
     }
 }

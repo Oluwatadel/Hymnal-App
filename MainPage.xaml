@@ -1,43 +1,98 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Hymn_Book.MainPage"
-             Title="Hymn Book">
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Hymn_Book.MainPage"
+    Title="Hymn Book"
+    BackgroundColor="#F9F9F9">
 
-    <VerticalStackLayout Padding="10" Spacing="10">
+    <Grid Padding="15">
+        <Grid.RowDefinitions>
+            <!-- 🔍 SEARCH BAR -->
+            <RowDefinition Height="Auto" />
 
-        <!-- Search bar at top -->
+            <!-- 📃 HYMN LIST -->
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- 🔍 SEARCH BAR -->
         <SearchBar Placeholder="Search hymns..."
                    Text="{Binding SearchQuery}"
-                   SearchCommand="{Binding SearchCommand}" />
+                   SearchCommand="{Binding SearchCommand}"
+                   BackgroundColor="#FFFFFF"
+                   PlaceholderColor="#888"
+                   TextColor="#333"
+                   FontSize="14"
+                   VerticalOptions="Center"
+                   Grid.Row="0" />
 
-        <!-- Hymn list -->
+        <!-- 📃 HYMN LIST -->
         <CollectionView ItemsSource="{Binding Hymns}"
                         SelectionMode="Single"
-                        SelectionChanged="OnHymnSelected">
+                        SelectionChanged="OnHymnSelected"
+                        VerticalOptions="Fill"
+                        Grid.Row="1">
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="5">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
+                    <Border Stroke="#E5E5E5"
+                            StrokeThickness="1"
+                            BackgroundColor="#FFFFFF"
+                            Padding="12"
+                            Margin="0,5">
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="12" />
+                        </Border.StrokeShape>
 
-                        <Label Text="{Binding HymnNumber}" 
-                               FontAttributes="Bold"
-                               FontSize="16"
-                               Grid.Column="0" />
+                        <Grid ColumnSpacing="12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                                <!-- ⭐ Star icon column -->
+                            </Grid.ColumnDefinitions>
 
-                        <Label Text="{Binding Title}" 
-                               FontSize="16"
-                               Grid.Column="1"
-                               LineBreakMode="TailTruncation" />
-                    </Grid>
+                            <!-- 🎵 Hymn Number Circle -->
+                            <Border BackgroundColor="#0078D4"
+                                    VerticalOptions="Center"
+                                    Padding="12"
+                                    Grid.Column="0">
+                                <Border.StrokeShape>
+                                    <RoundRectangle CornerRadius="25" />
+                                </Border.StrokeShape>
+                                <Label Text="{Binding HymnNumber}"
+                                       FontAttributes="Bold"
+                                       TextColor="White"
+                                       VerticalOptions="Center"
+                                       HorizontalOptions="Center"
+                                       FontSize="16" />
+                            </Border>
+
+                            <!-- 🏷️ Hymn Title -->
+                            <Label Text="{Binding Title}"
+                                   VerticalOptions="Center"
+                                   VerticalTextAlignment="Center"
+                                   TextColor="#333"
+                                   FontAttributes="Bold"
+                                   FontSize="16"
+                                   Grid.Column="1"
+                                   LineBreakMode="TailTruncation" />
+
+                            <!-- ⭐ Favorite Star Icon -->
+                            <Image Source="{Binding IsFavorite, Converter={StaticResource BoolToStarIconConverter}}"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"
+                                   Grid.Column="2">
+                                <Image.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding BindingContext.ToggleFavoriteCommand, Source={x:Reference Name=MainPage}}"
+                                                          CommandParameter="{Binding .}" />
+                                </Image.GestureRecognizers>
+                            </Image>
+
+                        </Grid>
+                    </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-
         </CollectionView>
-
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>

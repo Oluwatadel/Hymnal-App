@@ -18,11 +18,14 @@ namespace Hymn_Book.Intefaces.Repository
             var hymns = await _database.Table<Hymn>().ToListAsync();
             return hymns;
         }
-        
+
         public async Task<ICollection<Hymn>> FindHymnAsync(string s)
             => await _database.Table<Hymn>()
-            .Where(a => a.Lyric == s)
-            .ToListAsync();
+            .Where
+            (
+                a => a.Lyric.ToLower().Contains(s.ToLower())
+            ).ToListAsync();
+
 
         //public async Task<ICollection<Hymn>> GetAllHymnAsync(string s)
         //    => await _database.Table<Hymn>()
@@ -44,6 +47,11 @@ namespace Hymn_Book.Intefaces.Repository
         {
             await _database.CreateTableAsync<Hymn>();
 
+        }
+
+        public async Task UpdateHymnAsync(Hymn hymn)
+        {
+            await _database.UpdateAsync(hymn);
         }
 
     }
