@@ -12,7 +12,7 @@
 		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
 		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
 		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
-
+		<AndroidRemoveAssemblies>System.Linq.Parallel.dll</AndroidRemoveAssemblies>
 		<OutputType>Exe</OutputType>
 		<RootNamespace>Hymn_Book</RootNamespace>
 		<UseMaui>true</UseMaui>
@@ -46,8 +46,9 @@
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
 
 		<!-- Splash Screen -->
-		<MauiSplashScreen Include="Resources\Splash\splash.svg" Color="#512BD4" BaseSize="128,128" />
-
+		<MauiSplashScreen Include="Resources\Images\logo.png"
+                  Color="#fff"
+                  BaseSize="128,128" />
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
 		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
@@ -98,6 +99,10 @@
 	  <MauiXaml Update="Views\Page\HymnSearchPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Platforms\Android\Resources\drawable\" />
 	</ItemGroup>
 
 </Project>

@@ -1,24 +1,41 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Shell
-    x:Class="Hymn_Book.AppShell"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:Hymn_Book"
-    xmlns:page="clr-namespace:Hymn_Book.Views.Page"
-    Shell.FlyoutBehavior="Flyout"
-    Title="Hymn_Book">
+<Shell  
+    x:Class="Hymn_Book.AppShell"  
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"  
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"  
+    xmlns:local="clr-namespace:Hymn_Book"  
+    xmlns:page="clr-namespace:Hymn_Book.Views.Page"  
+    Shell.FlyoutBehavior="Flyout"  
+    Title="Hymn_Book"  
+    FlyoutBackgroundColor="#001F54"
+    >
 
-    <FlyoutItem Title="Home" Icon="home.png">
-        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
-    </FlyoutItem>
-        
+    <!-- 👇 Add this block for global styling -->
+    <Shell.Resources>
+        <ResourceDictionary>
+            <!-- Set the font color of Flyout items -->
 
-    <FlyoutItem Title="Favoruite" Icon="star_filled.png">
-        <ShellContent ContentTemplate="{DataTemplate page:HymnSearchPage}" />
-    </FlyoutItem>
+            <!-- Optional: affects Shell title bar -->
+            <Style TargetType="Shell">
+                <Setter Property="ForegroundColor" Value="White" />
+                <Setter Property="TitleColor" Value="White" />
+                <Setter Property="DisabledColor" Value="Gray" />
+                <Setter Property="UnselectedColor" Value="#cccccc" />
+                <Setter Property="BackgroundColor" Value="#001F54" />
+            </Style>
+        </ResourceDictionary>
+    </Shell.Resources>
 
-    <!-- 👉 Add any other pages you want listed in the menu... -->
-    <FlyoutItem Title="About" Icon="help.png">
-        <ShellContent ContentTemplate="{DataTemplate page:AboutPage}" />
-    </FlyoutItem>
+    <!-- Your Flyout Items -->
+    <FlyoutItem Title="Home" Icon="home.png">  
+        <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />  
+    </FlyoutItem>  
+
+    <FlyoutItem Title="Favoruite" Icon="star_filled.png">  
+        <ShellContent ContentTemplate="{DataTemplate page:HymnSearchPage}" />  
+    </FlyoutItem>  
+
+    <FlyoutItem Title="About" Icon="help.png">  
+        <ShellContent ContentTemplate="{DataTemplate page:AboutPage}" />  
+    </FlyoutItem>  
 </Shell>
