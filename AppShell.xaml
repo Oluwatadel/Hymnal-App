@@ -8,17 +8,17 @@
     Shell.FlyoutBehavior="Flyout"
     Title="Hymn_Book">
 
-    <FlyoutItem Title="Home" Icon="Home.png">
+    <FlyoutItem Title="Home" Icon="home.png">
         <ShellContent ContentTemplate="{DataTemplate local:MainPage}" />
     </FlyoutItem>
         
 
-    <FlyoutItem Title="Favoruite" Icon="Favourite.png">
+    <FlyoutItem Title="Favoruite" Icon="star_filled.png">
         <ShellContent ContentTemplate="{DataTemplate page:HymnSearchPage}" />
     </FlyoutItem>
 
     <!-- 👉 Add any other pages you want listed in the menu... -->
-    <FlyoutItem Title="About" Icon="contact.png">
+    <FlyoutItem Title="About" Icon="help.png">
         <ShellContent ContentTemplate="{DataTemplate page:AboutPage}" />
     </FlyoutItem>
 </Shell>
