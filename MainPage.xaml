@@ -19,8 +19,8 @@
         <SearchBar Placeholder="Search hymns..."
                    Text="{Binding SearchQuery}"
                    SearchCommand="{Binding SearchCommand}"
-                   BackgroundColor="#FFFFFF"
-                   PlaceholderColor="#888"
+                   BackgroundColor="#001F54"
+                   PlaceholderColor="#fff"
                    TextColor="#333"
                    FontSize="14"
                    VerticalOptions="Center"
@@ -35,7 +35,7 @@
 
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Border Stroke="#E5E5E5"
+                    <Border Stroke="#001F54"
                             StrokeThickness="1"
                             BackgroundColor="#FFFFFF"
                             Padding="12"
@@ -53,9 +53,9 @@
                             </Grid.ColumnDefinitions>
 
                             <!-- 🎵 Hymn Number Circle -->
-                            <Border BackgroundColor="#0078D4"
+                            <Border BackgroundColor="#001F54"
                                     VerticalOptions="Center"
-                                    Padding="12"
+                                    Padding="10"
                                     Grid.Column="0">
                                 <Border.StrokeShape>
                                     <RoundRectangle CornerRadius="25" />
