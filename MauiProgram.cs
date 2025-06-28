@@ -57,7 +57,6 @@ public static class MauiProgram
 #if DEBUG
         builder.Logging.AddDebug();
 #endif
-
         var app = builder.Build();
 
         // Seed hymns
